@@ -86,9 +86,9 @@ public class PlayerMovement : MonoBehaviour
         isGrounded |= right.collider != null;
         // It is soo easy to make misstakes so do a lot of Debug.DrawRay calls when working with colliders...
         // Debug.DrawRay(groundCollider.bounds.center, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
-        Debug.DrawRay(groundCollider.bounds.center + Vector3.left * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
-        Debug.DrawRay(groundCollider.bounds.center, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
-        Debug.DrawRay(groundCollider.bounds.center + Vector3.right * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
+        // Debug.DrawRay(groundCollider.bounds.center + Vector3.left * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
+        // Debug.DrawRay(groundCollider.bounds.center, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
+        // Debug.DrawRay(groundCollider.bounds.center + Vector3.right * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
         return isGrounded;
     }
 

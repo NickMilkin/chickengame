@@ -1789,6 +1789,7 @@ MonoBehaviour:
   groundCollider: {fileID: 1668803654}
   enemy: {fileID: 1591578402}
   animator: {fileID: 1668803655}
+  spriteTransform: {fileID: 1793264962}
 --- !u!4 &1668803653
 Transform:
   m_ObjectHideFlags: 0

@@ -70,7 +70,7 @@ public class PlayerFollowScript : MonoBehaviour
                 break;
             }
             toEgg.Pop();
-            history.Dequeue();
+            history.Dequeue(); // dequeue from other end?
         }
 
         while (toEgg.Count > 0) {

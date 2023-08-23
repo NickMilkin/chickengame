@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7637061271189403207}
   - component: {fileID: 5594415832787003449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8758841447594641129}
   - component: {fileID: 669988023349770889}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725751884686016021}
   - component: {fileID: 1415608009594299643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4753631538748252010}
   - component: {fileID: 6936248911646905758}
   - component: {fileID: 8853055236599488007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

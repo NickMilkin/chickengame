@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.3353107
+      value: 7.617516
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.65
+      value: 5.7912
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -549,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.2531624
+      value: 3.843071
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5418
+      value: 0.1433
       objectReference: {fileID: 0}
     - target: {fileID: 5486774188677377468, guid: 3c999b1c9e282481b864158499d37d1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -733,7 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1486949286}
   - component: {fileID: 1486949287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -928,8 +928,10 @@ MonoBehaviour:
   speed: 4
   acceleration: 8
   jumpstrenght: 120
-  launchspeed: 40
+  launchspeed: 25
   egg: {fileID: 1223823129399152289, guid: 29d4f462987f34d1b959c11db20f5ac9, type: 3}
+  heightTestPlayer: 0.61
+  groundCollider: {fileID: 1668803652}
 --- !u!70 &1668803652
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -972,7 +974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793264962}
   - component: {fileID: 1793264963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

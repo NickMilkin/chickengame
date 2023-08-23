@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D groundCollider;
     private bool hasEgg = true;
     public PlayerFollowScript enemy;
+    public Animator animator;
+    public Transform spriteTransform;
     public GameObject lastegg { get; private set; }
     private int layerMaskGround;
     // Start is called before the first frame update
@@ -34,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Jump")) {
                 playerbody.AddForce(Vector2.up * jumpstrenght);
             }
+            animator.SetBool("Grounded", true);
+        } else {
+            animator.SetBool("Grounded", false);
         }
 
         if (Input.GetMouseButtonDown(0) && hasEgg) {
@@ -62,6 +67,13 @@ public class PlayerMovement : MonoBehaviour
                 playerbody.velocity.x + Time.deltaTime * acceleration
             ), playerbody.velocity.y
         );
+
+        animator.SetFloat("Speed", Mathf.Abs(playerbody.velocity.x));
+        if (playerbody.velocity.x >= 0f) {
+            spriteTransform.localScale = Vector3.one;
+        } else {
+            spriteTransform.localScale = new Vector3(-1,1,1);
+        }
 
         if (Mathf.Abs(horizontalInput) < 0.2) { // Also affects vertical velocity
             playerbody.velocity = Vector2.ClampMagnitude(playerbody.velocity, playerbody.velocity.magnitude - 3f * Time.deltaTime);

@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 1f;
     public float jumpstrenght = 4.5f;
     public float launchspeed = 12f;
+    public float raycastgroundwidth = 0.35f;
     public Transform egg;
     public float heightTestPlayer;
     public Collider2D groundCollider;
     private bool hasEgg = true;
-    private GameObject lastegg;
+    public PlayerFollowScript enemy;
+    public GameObject lastegg { get; private set; }
     private int layerMaskGround;
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             playerbody.velocity = Vector2.ClampMagnitude(playerbody.velocity, playerbody.velocity.magnitude - 3f * Time.deltaTime);
         }
         if (Input.GetKeyDown(KeyCode.F) && lastegg) {
+            enemy.OnHatchEgg();
             hasEgg = IsGrounded();
             transform.position = lastegg.transform.position;
             playerbody.velocity = lastegg.GetComponent<Rigidbody2D>().velocity;
@@ -76,9 +79,16 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded() {
         // Note that we only check for colliders on the Ground layer (we don't want to hit ourself). 
         RaycastHit2D hit = Physics2D.Raycast(groundCollider.bounds.center, Vector2.down, heightTestPlayer, layerMaskGround);
+        RaycastHit2D left = Physics2D.Raycast(groundCollider.bounds.center + Vector3.left * raycastgroundwidth, Vector2.down, heightTestPlayer, layerMaskGround);
+        RaycastHit2D right = Physics2D.Raycast(groundCollider.bounds.center + Vector3.right * raycastgroundwidth, Vector2.down, heightTestPlayer, layerMaskGround);
         bool isGrounded = hit.collider != null;
+        isGrounded |= left.collider != null;
+        isGrounded |= right.collider != null;
         // It is soo easy to make misstakes so do a lot of Debug.DrawRay calls when working with colliders...
+        // Debug.DrawRay(groundCollider.bounds.center, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
+        Debug.DrawRay(groundCollider.bounds.center + Vector3.left * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
         Debug.DrawRay(groundCollider.bounds.center, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
+        Debug.DrawRay(groundCollider.bounds.center + Vector3.right * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
         return isGrounded;
     }
 

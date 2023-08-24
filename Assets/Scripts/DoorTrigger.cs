@@ -6,7 +6,7 @@ public class DoorTrigger : MonoBehaviour
 {
     public GameObject door;
     public Sprite buttonDown;
-    public SpriteRenderer renderer;
+    public SpriteRenderer spriteRenderer;
     private bool active = true;
     void OnTriggerEnter2D(Collider2D col) {
         if (!active || col.gameObject.tag != "Player"){
@@ -14,6 +14,6 @@ public class DoorTrigger : MonoBehaviour
         }
         active = false;
         door.transform.position += Vector3.left * 2;
-        renderer.sprite = buttonDown;
+        spriteRenderer.sprite = buttonDown;
     }
 }

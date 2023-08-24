@@ -3565,7 +3565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 320351081}
   buttonDown: {fileID: 321720663, guid: c9034ac4c4f4d44779fb3626fe3693fc, type: 3}
-  renderer: {fileID: 1903567347}
+  spriteRenderer: {fileID: 1903567347}
 --- !u!1 &1907383183
 GameObject:
   m_ObjectHideFlags: 0

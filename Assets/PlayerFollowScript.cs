@@ -64,13 +64,26 @@ public class PlayerFollowScript : MonoBehaviour
     }
 
     public void OnHatchEgg() {
-        for (int i = history.Count; i > 0; i--)
+
+        Stack<Vector2> tempstack = new Stack<Vector2>();
+        Stack<Vector2> tempstack2 = new Stack<Vector2>();
+        for (int i = history.Count; i > 0; i--) {
+            tempstack.Push(history.Dequeue());
+        }
+
+        for (int i = tempstack.Count; i > 0; i--)
         {
             if (toEgg.Count == 0) {
                 break;
             }
             toEgg.Pop();
-            history.Dequeue(); // dequeue from other end?
+            tempstack.Pop(); // dequeue from other end?
+        }
+        while (tempstack.Count > 0) {
+            tempstack2.Push(tempstack.Pop());
+        }
+        while (tempstack2.Count > 0) {
+            history.Enqueue(tempstack2.Pop());
         }
 
         while (toEgg.Count > 0) {

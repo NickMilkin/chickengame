@@ -91,7 +91,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Hatching
         if (Input.GetKeyDown(KeyCode.F) && lastegg) {
-            enemy.OnHatchEgg();
+            if (enemy) {
+                enemy.OnHatchEgg();
+            }
             hasEgg = IsGrounded();
             transform.position = lastegg.transform.position;
             playerbody.velocity = lastegg.GetComponent<Rigidbody2D>().velocity;

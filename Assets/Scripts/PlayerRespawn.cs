@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
+    public bool dieOnDeath = false;
     Vector2 startPos;
     void Start()
     {
@@ -18,10 +19,16 @@ public class PlayerRespawn : MonoBehaviour
    }
 
    void Die(){
-    Respawn();
+    if(dieOnDeath){
+        GameObject.Destroy(gameObject);
+    } else {
+        Respawn();
+    }
+
    }
 
    void Respawn(){
     transform.position = startPos;
+    transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
    }
 }

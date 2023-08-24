@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     //[SerializeField] GameObject pauseMenu;
 
     void Update (){
         if(Input.GetKeyDown(KeyCode.Escape)){
-            if(GameIsPaused){
+            if(gameIsPaused){
                 Resume();
             }else{
                 Pause();
@@ -22,13 +22,13 @@ public class PauseMenu : MonoBehaviour
     public void Pause(){
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; //game time is paused.
-        GameIsPaused = true;
+        gameIsPaused = true;
     }
 
     public void Resume(){
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; //Game is unpaused.
-        GameIsPaused = false;
+        gameIsPaused = false;
         Debug.Log("Im here");
     }
 

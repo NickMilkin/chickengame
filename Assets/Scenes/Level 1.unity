@@ -2623,6 +2623,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &858626890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4513264960151785007, guid: 33a3421f057d641f296cbb7e11e220e5, type: 3}
+  m_PrefabInstance: {fileID: 933152929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0335eb3dcb8c24d6db9622226b2b1f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &933152929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3226,6 +3237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907383185}
   - component: {fileID: 1907383184}
+  - component: {fileID: 1907383186}
   m_Layer: 0
   m_Name: Background_Music
   m_TagString: Untagged
@@ -3344,6 +3356,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907383186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907383183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a23b683ae151d4c92c15f754168f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitch: {fileID: 1907383184}
+  pauseMenu: {fileID: 858626890}
 --- !u!1001 &4431012443881243212
 PrefabInstance:
   m_ObjectHideFlags: 0

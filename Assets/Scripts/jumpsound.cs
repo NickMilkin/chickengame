@@ -7,8 +7,8 @@ public class jumpsound : MonoBehaviour
     public AudioSource audioSource1;
     public AudioSource audioSource2;
     public AudioSource audioSource3;
+    public AudioSource audioSource4;
     public PlayerMovement movement;
-
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +32,11 @@ public class jumpsound : MonoBehaviour
     {
             audioSource3.Play();
     }
+    
+    }
+
+    public void OnDeath() 
+    {
+        audioSource4.Play();
     }
 }

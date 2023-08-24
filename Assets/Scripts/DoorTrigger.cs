@@ -13,7 +13,7 @@ public class DoorTrigger : MonoBehaviour
             return;
         }
         active = false;
-        door.transform.position += Vector3.left * 2;
+        door.transform.position += Vector3.left * 2; //Needs changed per scene.
         spriteRenderer.sprite = buttonDown;
     }
 }

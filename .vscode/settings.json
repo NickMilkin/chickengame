@@ -52,5 +52,5 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "chickengame.sln"
+    "dotnet.defaultSolution": "chickengame-main.sln"
 }

@@ -9,9 +9,13 @@ public class PlayerFollowScript : MonoBehaviour
     private Stack<Vector2> toEgg;
     private Queue<Vector2> eggPath;
     public PlayerMovement player;
+    public Animator racoonanimator;
     public uint delay = 120;
     public uint margin = 60;
     private int topop = 0;
+    public float velMult = 1f;
+    private float framerate = 50;
+    public Transform spriteTransform;
     /*
     following = []
     trackegg = false
@@ -60,7 +64,17 @@ public class PlayerFollowScript : MonoBehaviour
                     topop += 1;
                 }
             }
-            transform.position = (Vector3)history.Dequeue();
+            Vector2 newPos = history.Dequeue();
+            Vector2 movement = newPos - (Vector2)transform.position;
+            transform.position = (Vector3)newPos;
+            racoonanimator.SetFloat("hvel", Mathf.Abs(movement.x) * framerate * velMult);
+            racoonanimator.SetFloat("vvel", movement.y * framerate * velMult);
+                    // Animation code
+            if (movement.x >= 0f) {
+                spriteTransform.localScale = Vector3.one;
+            } else {
+                spriteTransform.localScale = new Vector3(-1,1,1);
+            }
         }
     }
 
@@ -77,7 +91,7 @@ public class PlayerFollowScript : MonoBehaviour
         for (int i = history.Count; i > 0; i--) {
             tempstack.Push(history.Dequeue());
         }
-
+ 
         int toeggcount = toEgg.Count;
         int tempstackcount = tempstack.Count;
         for (int i = Mathf.Min(tempstack.Count + topop, toEgg.Count); i > 0; i--) {

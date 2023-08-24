@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b533e9e34539784da9bcb3cee902ab5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerbody: {fileID: 0}
+  playerbody: {fileID: 4431012443389914638}
   speed: 4
   acceleration: 8
   jumpstrenght: 120

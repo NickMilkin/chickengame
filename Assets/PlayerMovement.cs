@@ -58,16 +58,19 @@ public class PlayerMovement : MonoBehaviour
             lastegg = newegg.gameObject;
         }
 
+        // Horizontal movement
         float horizontalInput = Input.GetAxis("Horizontal");
-        float horizontalVelocity = horizontalInput * speed;
+        float targetVelocity = horizontalInput * speed;
+        float adaptiveAcceleration = Time.deltaTime * acceleration / (Mathf.Abs(playerbody.velocity.x / speed) + 0.3f);
         playerbody.velocity = new Vector2(
-            Mathf.Clamp(
-                horizontalVelocity,
-                playerbody.velocity.x - Time.deltaTime * acceleration,
-                playerbody.velocity.x + Time.deltaTime * acceleration
+            Mathf.MoveTowards(
+                playerbody.velocity.x,
+                targetVelocity,
+                adaptiveAcceleration
             ), playerbody.velocity.y
         );
 
+        // Animation code
         animator.SetFloat("Speed", Mathf.Abs(playerbody.velocity.x));
         if (playerbody.velocity.x >= 0f) {
             spriteTransform.localScale = Vector3.one;
@@ -75,9 +78,16 @@ public class PlayerMovement : MonoBehaviour
             spriteTransform.localScale = new Vector3(-1,1,1);
         }
 
+        // Horizontal damping
         if (Mathf.Abs(horizontalInput) < 0.2) { // Also affects vertical velocity
-            playerbody.velocity = Vector2.ClampMagnitude(playerbody.velocity, playerbody.velocity.magnitude - 3f * Time.deltaTime);
+            float absvel = Mathf.Abs(playerbody.velocity.x);
+            playerbody.velocity = new Vector2(
+                Mathf.MoveTowards(playerbody.velocity.x, 0, 3f * Time.deltaTime),
+                playerbody.velocity.y
+            );
         }
+
+        // Hatching
         if (Input.GetKeyDown(KeyCode.F) && lastegg) {
             enemy.OnHatchEgg();
             hasEgg = IsGrounded();

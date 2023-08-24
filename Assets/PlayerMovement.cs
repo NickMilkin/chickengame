@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private bool IsGrounded() {
+    public bool IsGrounded() {
         // Note that we only check for colliders on the Ground layer (we don't want to hit ourself). 
         RaycastHit2D hit = Physics2D.Raycast(groundCollider.bounds.center, Vector2.down, heightTestPlayer, layerMaskGround);
         RaycastHit2D left = Physics2D.Raycast(groundCollider.bounds.center + Vector3.left * raycastgroundwidth, Vector2.down, heightTestPlayer, layerMaskGround);

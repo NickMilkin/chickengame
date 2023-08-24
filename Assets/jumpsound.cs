@@ -7,6 +7,7 @@ public class jumpsound : MonoBehaviour
     public AudioSource audioSource1;
     public AudioSource audioSource2;
     public AudioSource audioSource3;
+    public PlayerMovement movement;
 
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class jumpsound : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && movement.IsGrounded())
 	{
             audioSource1.Play();
     }

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpstrenght = 4.5f;
     public float launchspeed = 12f;
     public float raycastgroundwidth = 0.35f;
+    public float eggBoost = 0.4f;
     public Transform egg;
     public float heightTestPlayer;
     public Collider2D groundCollider;
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Grounded", false);
         }
 
+        //Egg throwing
         if (Input.GetMouseButtonDown(0) && hasEgg) {
             if (lastegg) {
                 GameObject.Destroy(lastegg);
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 aimdir = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             aimdir.Normalize();
 
-            Transform newegg = Instantiate(egg, gameObject.transform.position + (Vector3)aimdir, gameObject.transform.rotation);
+            Transform newegg = Instantiate(egg, gameObject.transform.position + eggBoost * (Vector3)aimdir, gameObject.transform.rotation);
             Rigidbody2D eggbody = newegg.GetComponent<Rigidbody2D>();
             eggbody.velocity = playerbody.velocity;
             eggbody.AddForce(launchspeed * aimdir);

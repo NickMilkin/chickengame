@@ -28,11 +28,9 @@ public class jumpsound : MonoBehaviour
     {
             audioSource2.Play();
     }
-    if(Input.GetKeyDown(KeyCode.F) && movement.lastegg)
+    if(Input.GetKeyDown(KeyCode.F))
     {
-        
-                audioSource3.Play();
-
+            audioSource3.Play();
     }
     }
 }

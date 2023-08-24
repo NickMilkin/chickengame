@@ -47,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
             if (lastegg) {
                 GameObject.Destroy(lastegg);
             }
+            if (enemy) {
+                enemy.OnThrowEgg();
+            }
+
             hasEgg = false;
             
             Vector2 aimdir = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);

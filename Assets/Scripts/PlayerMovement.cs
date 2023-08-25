@@ -22,11 +22,15 @@ public class PlayerMovement : MonoBehaviour
     public bool started = false;
     public GameObject lastegg { get; private set; }
     private int layerMaskGround;
+    private Color eggColor;
+
+    public SpriteRenderer selfRenderer;
     // Start is called before the first frame update
     void Start()
     {
         playerbody = gameObject.GetComponent<Rigidbody2D>();
         layerMaskGround = LayerMask.GetMask("Ground");
+        RandomizeColor();
     }
 
     // Update is called once per frame
@@ -59,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             aimdir.Normalize();
 
             Transform newegg = Instantiate(egg, gameObject.transform.position + eggBoost * (Vector3)aimdir, gameObject.transform.rotation);
+            newegg.GetComponentInChildren<SpriteRenderer>().color = eggColor;
             Rigidbody2D eggbody = newegg.GetComponent<Rigidbody2D>();
             eggbody.velocity = playerbody.velocity;
             eggbody.AddForce(launchspeed * aimdir);
@@ -103,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
             if (enemy) {
                 enemy.OnHatchEgg();
             }
+            RandomizeColor();
             hasEgg = IsGrounded();
             transform.position = lastegg.transform.position;
             playerbody.velocity = lastegg.GetComponent<Rigidbody2D>().velocity;
@@ -133,6 +139,13 @@ public class PlayerMovement : MonoBehaviour
         lastegg = null;
         enemy?.OnDeath();
         gameObject.GetComponent<jumpsound>().OnDeath();
+        RandomizeColor();
+    }
+
+    private void RandomizeColor() {
+        selfRenderer.color = new Color(Random.Range(0.4f, 1f), Random.Range(0.7f, 1f), Random.Range(0.7f, 1f), 1f);
+        float eggredvalue = Random.value;
+        eggColor = new Color(eggredvalue, Random.Range(Mathf.Max(0, eggredvalue - 0.2f), eggredvalue), Random.Range(Mathf.Max(0, eggredvalue - 0.2f), eggredvalue), 1f);
     }
 
 }

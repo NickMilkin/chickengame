@@ -151,6 +151,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   animator: {fileID: 4431012443389914635}
   spriteTransform: {fileID: 4431012443229228814}
+  started: 0
+  selfRenderer: {fileID: 4431012443229228815}
 --- !u!50 &4431012443389914638
 Rigidbody2D:
   serializedVersion: 4

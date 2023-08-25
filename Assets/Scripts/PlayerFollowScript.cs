@@ -95,6 +95,8 @@ public class PlayerFollowScript : MonoBehaviour
         eggPath.Clear();
         history.Clear();
         transform.position = startPos;
+        racoonanimator.SetFloat("hvel", 0f);
+        racoonanimator.SetFloat("vvel", 0f);
         awake = false;
     }
 

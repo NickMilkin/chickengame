@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     private Color eggColor;
     public static UnityEvent deathEvent;
 
+    public Animator transition;
+    public float transitionTime = 1;
+
     public SpriteRenderer selfRenderer;
 
     void Awake() {
@@ -150,6 +153,17 @@ public class PlayerMovement : MonoBehaviour
         }
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         RandomizeColor();
+        StartCoroutine(RespawnTransition());
+            
+        IEnumerator RespawnTransition(){
+            selfRenderer.enabled = false;
+            yield return new WaitForSeconds(1);
+            transition.SetTrigger("Start"); //Scene change causes trigger of transistion.
+            yield return new WaitForSeconds(transitionTime);
+            //Player to respawn at start
+            selfRenderer.enabled = true;
+
+        }
     }
 
     private void RandomizeColor() {

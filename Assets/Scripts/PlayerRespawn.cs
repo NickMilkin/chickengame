@@ -22,18 +22,16 @@ public class PlayerRespawn : MonoBehaviour
    void Die(){
     if (gameObject.GetComponent<PlayerMovement>()) {
         PlayerMovement.deathEvent.Invoke();
-    }
-
-    if(dieOnDeath){
-        GameObject.Destroy(gameObject);
-    } else {
         Respawn();
+    } else {
+        GameObject.Destroy(gameObject);
+    }
     }
 
-   }
-
-   void Respawn(){
+   void Respawn() {
+    Debug.Log("test");
     transform.position = startPos;
     transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
    }
 }

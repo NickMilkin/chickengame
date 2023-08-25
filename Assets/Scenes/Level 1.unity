@@ -3573,6 +3573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 7835990977101476746, guid: 5517d2e61c5c62adc949d9df3211cfaa, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c324c5dc1762fbc409c85d81f1031092, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5517d2e61c5c62adc949d9df3211cfaa, type: 3}
 --- !u!1001 &5836090989352046819

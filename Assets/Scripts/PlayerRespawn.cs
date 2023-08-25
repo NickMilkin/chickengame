@@ -22,6 +22,7 @@ public class PlayerRespawn : MonoBehaviour
     if (gameObject.GetComponent<PlayerMovement>()) {
         PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
         player.YouDied();
+        
     }
 
     if(dieOnDeath){

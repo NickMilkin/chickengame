@@ -143,9 +143,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void RandomizeColor() {
-        selfRenderer.color = new Color(Random.Range(0.4f, 1f), Random.Range(0.7f, 1f), Random.Range(0.7f, 1f), 1f);
-        float eggredvalue = Random.value;
-        eggColor = new Color(eggredvalue, Random.Range(Mathf.Max(0, eggredvalue - 0.2f), eggredvalue), Random.Range(Mathf.Max(0, eggredvalue - 0.2f), eggredvalue), 1f);
+        selfRenderer.color = new Color(Random.Range(0.6f, 1f), Random.Range(0.8f, 1f), Random.Range(0.8f, 1f), 1f);
+        eggColor = new Color(Random.Range(0.6f, 1f), Random.Range(0.8f, 1f), Random.Range(0.8f, 1f), 1f);
     }
 
 }

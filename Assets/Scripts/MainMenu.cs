@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public AudioSource ClickButton;
     public void OnStartButton(){
-        SceneManager.LoadScene("Level 1"); //loads into scene 1 (Start of game)
+        SceneManager.LoadScene("Comic");
         ClickButton.Play();
     }
 

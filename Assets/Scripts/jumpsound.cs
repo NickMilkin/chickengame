@@ -23,6 +23,7 @@ public class jumpsound : MonoBehaviour
         
         if(Input.GetKeyDown("space") && movement.IsGrounded())
 	{
+            jumpSound.Stop();
             jumpSound.Play();
         }
         if(Input.GetMouseButtonDown(0))

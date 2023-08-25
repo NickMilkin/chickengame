@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class jumpsound : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class jumpsound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        PlayerMovement.deathEvent.AddListener(OnDeath);
     }
 
     // Update is called once per frame

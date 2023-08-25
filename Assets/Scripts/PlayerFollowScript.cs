@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerFollowScript : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class PlayerFollowScript : MonoBehaviour
         toEgg = new Stack<Vector2>();
         eggPath = new Queue<Vector2>();
         startPos = transform.position;
+        PlayerMovement.deathEvent.AddListener(OnDeath);
     }
 
     void FixedUpdate()

@@ -9263,6 +9263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sceneloader
       objectReference: {fileID: 0}
+    - target: {fileID: 303131840074084000, guid: 34440a9ba0bdee3f982bfac42c9f1ec5, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 303131840074084001, guid: 34440a9ba0bdee3f982bfac42c9f1ec5, type: 3}
       propertyPath: nextScene
       value: EndScene
@@ -9277,15 +9281,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303131840074084003, guid: 34440a9ba0bdee3f982bfac42c9f1ec5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.138359
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 303131840074084003, guid: 34440a9ba0bdee3f982bfac42c9f1ec5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8823433
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 303131840074084003, guid: 34440a9ba0bdee3f982bfac42c9f1ec5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5565899
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 303131840074084003, guid: 34440a9ba0bdee3f982bfac42c9f1ec5, type: 3}
       propertyPath: m_LocalRotation.w

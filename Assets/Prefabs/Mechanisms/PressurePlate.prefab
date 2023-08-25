@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
+  buttonUp: {fileID: -599128917, guid: c9034ac4c4f4d44779fb3626fe3693fc, type: 3}
   buttonDown: {fileID: 321720663, guid: c9034ac4c4f4d44779fb3626fe3693fc, type: 3}
   spriteRenderer: {fileID: 198596249469638870}
   ClickButton: {fileID: 198596250791770407}

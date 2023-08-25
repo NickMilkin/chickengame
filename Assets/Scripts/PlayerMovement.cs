@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,14 +25,21 @@ public class PlayerMovement : MonoBehaviour
     private int layerMaskGround;
     public Transform deathEffect;
     private Color eggColor;
+    public static UnityEvent deathEvent;
 
     public SpriteRenderer selfRenderer;
+
+    void Awake() {
+        if (deathEvent == null)
+            deathEvent = new UnityEvent();
+    }
     // Start is called before the first frame update
     void Start()
     {
         playerbody = gameObject.GetComponent<Rigidbody2D>();
         layerMaskGround = LayerMask.GetMask("Ground");
         RandomizeColor();
+        deathEvent.AddListener(YouDied);
     }
 
     // Update is called once per frame
@@ -136,11 +144,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void YouDied() {
         started = false;
-        lastegg = null;
-        GameObject.Destroy(lastegg);
+        if (lastegg) {
+            GameObject.Destroy(lastegg);
+            lastegg = null;
+        }
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        enemy?.OnDeath();
-        gameObject.GetComponent<jumpsound>().OnDeath();
         RandomizeColor();
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -20,9 +21,7 @@ public class PlayerRespawn : MonoBehaviour
 
    void Die(){
     if (gameObject.GetComponent<PlayerMovement>()) {
-        PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
-        player.YouDied();
-        
+        PlayerMovement.deathEvent.Invoke();
     }
 
     if(dieOnDeath){

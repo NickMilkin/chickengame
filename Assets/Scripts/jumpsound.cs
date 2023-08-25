@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class jumpsound : MonoBehaviour
 {
-    public AudioSource audioSource1;
-    public AudioSource audioSource2;
-    public AudioSource audioSource3;
-    public AudioSource audioSource4;
+    public AudioSource jumpSound;
+    public AudioSource throwSound;
+    public AudioSource hatchSound;
+    public AudioSource deathSound;
     public PlayerMovement movement;
 
     // Start is called before the first frame update
@@ -22,21 +22,20 @@ public class jumpsound : MonoBehaviour
         
         if(Input.GetKeyDown("space") && movement.IsGrounded())
 	{
-            audioSource1.Play();
-    }
-      if(Input.GetMouseButtonDown(0) == true)
-    {
-            audioSource2.Play();
-    }
-    if(Input.GetKeyDown(KeyCode.F) && movement.lastegg)
-    {
-            audioSource3.Play();
-    }
-    
+            jumpSound.Play();
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+                throwSound.Play();
+        }
+        if(Input.GetKeyDown(KeyCode.F) && movement.lastegg)
+        {
+                hatchSound.Play();
+        }
     }
 
     public void OnDeath() 
     {
-        audioSource4.Play();
+        deathSound.Play();
     }
 }

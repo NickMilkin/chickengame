@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerFollowScript enemy;
     public Animator animator;
     public Transform spriteTransform;
+    public bool started = false;
     public GameObject lastegg { get; private set; }
     private int layerMaskGround;
     // Start is called before the first frame update
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Egg throwing
         if (Input.GetMouseButtonDown(0) && hasEgg) {
+            started = true;
             if (lastegg) {
                 GameObject.Destroy(lastegg);
             }
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Horizontal movement
         float horizontalInput = Input.GetAxis("Horizontal");
+        started |= Mathf.Abs(horizontalInput) > 0.01;
         float targetVelocity = horizontalInput * speed;
         float adaptiveAcceleration = Time.deltaTime * acceleration / (Mathf.Abs(playerbody.velocity.x / speed) + 0.3f);
         playerbody.velocity = new Vector2(
@@ -95,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Hatching
         if (Input.GetMouseButtonDown(1) && lastegg) {
+            started = true;
+
             if (enemy) {
                 enemy.OnHatchEgg();
             }
@@ -120,6 +125,14 @@ public class PlayerMovement : MonoBehaviour
         // Debug.DrawRay(groundCollider.bounds.center, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
         // Debug.DrawRay(groundCollider.bounds.center + Vector3.right * raycastgroundwidth, Vector2.down * heightTestPlayer, isGrounded ? Color.green : Color.red, 0.5f);
         return isGrounded;
+    }
+
+    public void YouDied() {
+        started = false;
+        GameObject.Destroy(lastegg);
+        lastegg = null;
+        enemy?.OnDeath();
+        gameObject.GetComponent<jumpsound>().OnDeath();
     }
 
 }

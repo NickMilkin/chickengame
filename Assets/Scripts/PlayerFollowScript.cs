@@ -16,6 +16,7 @@ public class PlayerFollowScript : MonoBehaviour
     public float velMult = 1f;
     private float framerate = 50;
     public Transform spriteTransform;
+    private Vector3 startPos;
     /*
     following = []
     trackegg = false
@@ -42,6 +43,7 @@ public class PlayerFollowScript : MonoBehaviour
         history = new Queue<Vector2>();
         toEgg = new Stack<Vector2>();
         eggPath = new Queue<Vector2>();
+        startPos = transform.position;
     }
 
     void FixedUpdate()
@@ -50,6 +52,9 @@ public class PlayerFollowScript : MonoBehaviour
             awake = true;
         }
 
+        if (!player.started) {
+            return;
+        }
         Vector2 playerPosition = (Vector2)player.transform.position;
         history.Enqueue(playerPosition);
         if (player.lastegg) {
@@ -82,6 +87,15 @@ public class PlayerFollowScript : MonoBehaviour
         topop = 0;
         toEgg.Clear();
         eggPath.Clear();
+    }
+
+    public void OnDeath() {
+        topop = 0;
+        toEgg.Clear();
+        eggPath.Clear();
+        history.Clear();
+        transform.position = startPos;
+        awake = false;
     }
 
     public void OnHatchEgg() {

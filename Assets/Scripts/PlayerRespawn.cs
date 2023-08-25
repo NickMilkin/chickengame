@@ -21,11 +21,7 @@ public class PlayerRespawn : MonoBehaviour
    void Die(){
     if (gameObject.GetComponent<PlayerMovement>()) {
         PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
-        if (player.lastegg) {
-            player.enemy?.OnThrowEgg();
-            GameObject.Destroy(player.lastegg);
-        }
-        player.GetComponent<jumpsound>().OnDeath();
+        player.YouDied();
     }
 
     if(dieOnDeath){

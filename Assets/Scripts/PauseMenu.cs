@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    public AudioSource ClickButton;
     //[SerializeField] GameObject pauseMenu;
 
     void Update (){
@@ -30,10 +31,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; //Game is unpaused.
         gameIsPaused = false;
         Debug.Log("Im here");
+        ClickButton.Play();
     }
 
     public void Quit(){
         Time.timeScale = 1f; 
         SceneManager.LoadScene(0);
+        ClickButton.Play();
     }
 }

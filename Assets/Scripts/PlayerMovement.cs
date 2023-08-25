@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool started = false;
     public GameObject lastegg { get; private set; }
     private int layerMaskGround;
+    public Transform deathEffect;
     private Color eggColor;
 
     public SpriteRenderer selfRenderer;
@@ -135,8 +136,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void YouDied() {
         started = false;
-        GameObject.Destroy(lastegg);
         lastegg = null;
+        GameObject.Destroy(lastegg);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         enemy?.OnDeath();
         gameObject.GetComponent<jumpsound>().OnDeath();
         RandomizeColor();

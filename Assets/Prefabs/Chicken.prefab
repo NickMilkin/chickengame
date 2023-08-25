@@ -152,6 +152,7 @@ MonoBehaviour:
   animator: {fileID: 4431012443389914635}
   spriteTransform: {fileID: 4431012443229228814}
   started: 0
+  deathEffect: {fileID: 9144487359022408240, guid: 7086ae3e9ad2fdfa3bfa651817cb161e, type: 3}
   selfRenderer: {fileID: 4431012443229228815}
 --- !u!50 &4431012443389914638
 Rigidbody2D:

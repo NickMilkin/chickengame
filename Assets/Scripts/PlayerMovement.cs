@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             aimdir.Normalize();
 
             Transform newegg = Instantiate(egg, gameObject.transform.position + eggBoost * (Vector3)aimdir, gameObject.transform.rotation);
-            newegg.GetComponentInChildren<SpriteRenderer>().color = eggColor;
+            // newegg.GetComponentInChildren<SpriteRenderer>().color = eggColor;
             Rigidbody2D eggbody = newegg.GetComponent<Rigidbody2D>();
             eggbody.velocity = playerbody.velocity;
             eggbody.AddForce(launchspeed * aimdir);
@@ -167,8 +167,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void RandomizeColor() {
-        selfRenderer.color = new Color(Random.Range(0.6f, 1f), Random.Range(0.8f, 1f), Random.Range(0.8f, 1f), 1f);
-        eggColor = new Color(Random.Range(0.6f, 1f), Random.Range(0.8f, 1f), Random.Range(0.8f, 1f), 1f);
+        // selfRenderer.color = new Color(Random.Range(0.6f, 1f), Random.Range(0.8f, 1f), Random.Range(0.8f, 1f), 1f);
+        // eggColor = new Color(Random.Range(0.6f, 1f), Random.Range(0.8f, 1f), Random.Range(0.8f, 1f), 1f);
     }
 
 }

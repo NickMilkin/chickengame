@@ -28,7 +28,7 @@ public class jumpsound : MonoBehaviour
         {
                 throwSound.Play();
         }
-        if(Input.GetKeyDown(KeyCode.F) && movement.lastegg)
+        if(Input.GetMouseButtonDown(1) && movement.lastegg)
         {
                 hatchSound.Play();
         }

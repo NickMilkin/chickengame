@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Hatching
-        if (Input.GetKeyDown(KeyCode.F) && lastegg) {
+        if (Input.GetMouseButtonDown(1) && lastegg) {
             if (enemy) {
                 enemy.OnHatchEgg();
             }

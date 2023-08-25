@@ -133,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   racoonanimator: {fileID: 1591578404}
-  delay: 120
-  margin: 60
+  delay: 150
+  margin: 50
   velMult: 0.1
   spriteTransform: {fileID: 2227507456809762237}
 --- !u!61 &1591578405

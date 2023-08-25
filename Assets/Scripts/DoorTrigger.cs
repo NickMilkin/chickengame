@@ -8,6 +8,8 @@ public class DoorTrigger : MonoBehaviour
     public Sprite buttonDown;
     public SpriteRenderer spriteRenderer;
     private bool active = true;
+    public AudioSource ClickButton;
+
     void OnTriggerEnter2D(Collider2D col) {
         if (!active || col.gameObject.tag != "Player"){
             return;
@@ -15,5 +17,6 @@ public class DoorTrigger : MonoBehaviour
         active = false;
         door.transform.position += Vector3.left * 2; //Needs changed per scene.
         spriteRenderer.sprite = buttonDown;
+        ClickButton.Play();
     }
 }
